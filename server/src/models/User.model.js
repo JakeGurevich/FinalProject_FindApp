@@ -7,7 +7,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true,
-    lowercase: true,
   },
   email: {
     type: String,
@@ -25,8 +24,14 @@ const userSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  phone: { type: Number },
   community: { type: mongoose.Schema.Types.ObjectId, ref: "Community" },
   tokens: [{ token: { type: String, required: true } }],
+});
+userSchema.virtual("communities", {
+  ref: "Community",
+  localField: "_id",
+  foreignField: "owner",
 });
 userSchema.methods.toJSON = function () {
   const user = this;

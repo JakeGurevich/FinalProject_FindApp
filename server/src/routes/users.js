@@ -4,7 +4,12 @@ const User = require("../models/User.model");
 const auth = require("../middleware/auth");
 
 usersRouter.get("/users/me", auth, async (req, res) => {
-  res.send(req.user);
+  try {
+    await req.user.populate("communities").execPopulate();
+    res.send(req.user);
+  } catch (error) {
+    res.status(500).send();
+  }
 });
 usersRouter.post("/users", async (req, res) => {
   console.log(req.body);
@@ -37,7 +42,7 @@ usersRouter.post("/users/logout", auth, async (req, res) => {
       return token.token !== req.token;
     });
     await req.user.save();
-    console.log(req.user.tokens, req.token);
+    // console.log(req.user.tokens, req.token);
     res.send();
   } catch (error) {
     res.status(400).send(error);

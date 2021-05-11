@@ -1,0 +1,13 @@
+.adminContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(234, 248, 248);
+}
+.logout {
+  background: rgb(253, 204, 204);
+}
+.content {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
