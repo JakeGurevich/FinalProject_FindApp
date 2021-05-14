@@ -11,7 +11,7 @@ export default function DisplayContent(props) {
     setCommunities(data);
   };
   const displayCommunities = communities.map((community) => {
-    return <Container community={community} />;
+    return <Container key={community._id} community={community} />;
   });
   useEffect(() => {
     getCommunities();

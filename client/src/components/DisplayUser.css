@@ -11,3 +11,13 @@
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
+.title {
+  font-size: 1.5em;
+  font-weight: 800;
+}
+.index {
+  z-index: 1000;
+}
+.lessons {
+  background: rgb(226, 235, 243);
+}

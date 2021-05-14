@@ -1,31 +1,11 @@
 const express = require("express");
-const communityRouter = express.Router();
-const Community = require("../models/Community.model");
+const lessonsRouter = express.Router();
+const Lesson = require("../models/Lesson.model");
 const auth = require("../middleware/auth");
 
-communityRouter.get("/communities/me", auth, async (req, res) => {
-  try {
-    const community = await Community.findOne({
-      owner: req.user._id,
-    }).populate("owner");
-    console.log(community);
-    res.send(community);
-  } catch (error) {
-    res.status(404).send(error);
-  }
-});
-
-communityRouter.get("/communities", async (req, res) => {
-  try {
-    const communities = await Community.find().populate("owner");
-    res.send(communities);
-  } catch (error) {
-    res.status(404).send(error);
-  }
-});
-communityRouter.post("/communities", auth, async (req, res) => {
+lessonsRouter.post("/community/lesson", auth, async (req, res) => {
   console.log(req.body);
-  const community = new Community({ ...req.body, owner: req.user._id });
+  const lesson = new Lesson({ ...req.body, owner: req.user._id });
   try {
     await community.save();
 
