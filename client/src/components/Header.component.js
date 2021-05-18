@@ -1,5 +1,4 @@
 import React from "react";
-import Admin from "./Admin.component";
 
 import { Link } from "react-router-dom";
 

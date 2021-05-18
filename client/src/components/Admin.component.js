@@ -27,6 +27,16 @@ export default function Admin(props) {
     console.log(data);
     console.log(community);
   };
+  const createLesson = async (lesson) => {
+    console.log(lesson);
+    const { data } = await authAxios.post("/api/community/lesson", lesson);
+    console.log(data);
+  };
+  const deleteLesson = async (id) => {
+    console.log(id);
+    const { data } = await authAxios.delete(`/api/community/lesson/${id}`);
+    console.log(data);
+  };
   const editCommunity = async (community) => {
     const { data } = await authAxios.patch("/api/community/me", community);
     console.log(data);
@@ -38,7 +48,10 @@ export default function Admin(props) {
       console.log("rendered");
       const { data } = await authAxios.get("/api/communities/me");
       console.log(data);
-      setData(data);
+      const { community, lessons } = data;
+      const newCommunity = { ...community, lessons: lessons };
+      console.log(newCommunity);
+      setData(newCommunity);
     };
     getUser();
   }, [update]); //eslint-disable-line react-hooks/exhaustive-deps
@@ -52,6 +65,8 @@ export default function Admin(props) {
           logout={logOut}
           create={createCommunity}
           edit={editCommunity}
+          add={createLesson}
+          delete={deleteLesson}
         />
       ) : (
         ""

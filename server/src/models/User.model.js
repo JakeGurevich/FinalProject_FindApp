@@ -33,6 +33,11 @@ userSchema.virtual("communities", {
   localField: "_id",
   foreignField: "owner",
 });
+userSchema.virtual("lessons", {
+  ref: "Lesson",
+  localField: "_id",
+  foreignField: "owner",
+});
 userSchema.methods.toJSON = function () {
   const user = this;
   const userObj = user.toObject();

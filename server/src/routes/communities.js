@@ -1,6 +1,7 @@
 const express = require("express");
 const communityRouter = express.Router();
 const Community = require("../models/Community.model");
+const Lesson = require("../models/Lesson.model");
 const auth = require("../middleware/auth");
 
 communityRouter.get("/communities/me", auth, async (req, res) => {
@@ -8,8 +9,12 @@ communityRouter.get("/communities/me", auth, async (req, res) => {
     const community = await Community.findOne({
       owner: req.user._id,
     }).populate("owner");
-    console.log(community);
-    res.send(community);
+    const lessons = await Lesson.find({
+      owner: req.user._id,
+    });
+    const sendData = { ...community, lessons: lessons };
+    console.log(lessons);
+    res.send({ community, lessons });
   } catch (error) {
     res.status(404).send(error);
   }

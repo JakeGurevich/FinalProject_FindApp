@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+
 import CardUser from "./CardUser.component.js";
 import "./Container.css";
 import Community from "./Community.component";
@@ -32,6 +32,8 @@ export default function DisplayUser(props) {
             togle={setTogleEdit}
             togleEdit={togleEdit}
             edit={props.edit}
+            add={props.add}
+            delete={props.delete}
           />
         ) : (
           <EditCommunity

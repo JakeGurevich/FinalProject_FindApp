@@ -1,5 +1,6 @@
 import React from "react";
 import Lessons from "./Lessons.component";
+import AddLesson from "./AddLesson.component";
 const Community = (props) => {
   return (
     <>
@@ -14,7 +15,7 @@ const Community = (props) => {
           </p>
           <p>{props.data.description}</p>
           <div className="lessons">
-            <Lessons />
+            <Lessons lessons={props.data.lessons} delete={props.delete} />
           </div>
         </div>
         {!props.data.name ? (
@@ -25,6 +26,7 @@ const Community = (props) => {
           </button>
         )}
       </div>
+      <AddLesson add={props.add} />
     </>
   );
 };
