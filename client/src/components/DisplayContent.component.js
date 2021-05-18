@@ -7,7 +7,7 @@ export default function DisplayContent(props) {
   const [communities, setCommunities] = useState([]);
   const getCommunities = async () => {
     const { data } = await axios.get("/api/communities");
-    console.log(data);
+
     setCommunities(data);
   };
   const displayCommunities = communities.map((community) => {

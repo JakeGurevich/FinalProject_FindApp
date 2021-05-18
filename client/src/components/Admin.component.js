@@ -24,7 +24,7 @@ export default function Admin(props) {
   };
   const createCommunity = async (community) => {
     const { data } = await authAxios.post("/api/communities", community);
-    console.log(data);
+
     console.log(community);
   };
   const createLesson = async (lesson) => {
@@ -45,15 +45,16 @@ export default function Admin(props) {
 
   useEffect(() => {
     const getUser = async () => {
-      console.log("rendered");
       const { data } = await authAxios.get("/api/communities/me");
-      console.log(data);
+
       const { community, lessons } = data;
       const newCommunity = { ...community, lessons: lessons };
-      console.log(newCommunity);
+
       setData(newCommunity);
     };
-    getUser();
+    if (props.token) {
+      getUser();
+    }
   }, [update]); //eslint-disable-line react-hooks/exhaustive-deps
 
   return (

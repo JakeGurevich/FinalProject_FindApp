@@ -18,6 +18,9 @@ app.use(cors());
 app.use("/api", usersRouter);
 app.use("/api", lessonsRouter);
 app.use("/api", communityRouter);
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 
 const PORT = process.env.PORT || 5000;
 
