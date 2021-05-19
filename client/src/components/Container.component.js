@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Container = ({ community }) => {
   return (
@@ -13,7 +14,9 @@ const Container = ({ community }) => {
         <p>{community.owner.name}</p>
         <p>{community.owner.phone}</p>
       </div>
-      <button>Подробнее</button>
+      <button>
+        <Link to={`/community/${community.name}`}>Подробнее</Link>
+      </button>
     </div>
   );
 };

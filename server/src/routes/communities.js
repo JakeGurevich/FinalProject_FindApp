@@ -19,6 +19,22 @@ communityRouter.get("/communities/me", auth, async (req, res) => {
     res.status(404).send(error);
   }
 });
+communityRouter.get("/community/:handle", async (req, res) => {
+  console.log(req.params.handle);
+  try {
+    const community = await Community.findOne({
+      name: req.params.handle,
+    }).populate("owner");
+    const lessons = await Lesson.find({
+      owner: community.owner._id,
+    });
+    const sendData = { ...community, lessons: lessons };
+    console.log(lessons);
+    res.send({ community, lessons });
+  } catch (error) {
+    res.status(404).send(error);
+  }
+});
 
 communityRouter.get("/communities", async (req, res) => {
   try {

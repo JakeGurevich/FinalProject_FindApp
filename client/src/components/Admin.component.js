@@ -31,11 +31,13 @@ export default function Admin(props) {
     console.log(lesson);
     const { data } = await authAxios.post("/api/community/lesson", lesson);
     console.log(data);
+    setUpdate("update");
   };
   const deleteLesson = async (id) => {
     console.log(id);
     const { data } = await authAxios.delete(`/api/community/lesson/${id}`);
     console.log(data);
+    setUpdate("update");
   };
   const editCommunity = async (community) => {
     const { data } = await authAxios.patch("/api/community/me", community);
