@@ -31,9 +31,6 @@ const Lessons = (props) => {
             </div>
           );
         })}
-      <div>
-        <button>+</button>
-      </div>
     </div>
   );
 };

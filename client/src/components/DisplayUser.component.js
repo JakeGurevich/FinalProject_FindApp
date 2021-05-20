@@ -23,7 +23,6 @@ export default function DisplayUser(props) {
         </p>
       </div>
       <div className="content admin">
-        {console.log(props.data)}
         <CardUser data={props.data} />
         {!togleEdit ? (
           <Community

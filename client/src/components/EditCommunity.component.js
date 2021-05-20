@@ -10,7 +10,7 @@ const EditCommunity = ({ edit, data, togle }) => {
 
   return (
     <>
-      <div className="testbox index">
+      <div className="container">
         <div className="form">
           <div onClick={() => togle(false)}>Закрыть</div>
           <div className="banner">

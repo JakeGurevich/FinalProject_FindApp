@@ -25,7 +25,7 @@ export default function Admin(props) {
   const createCommunity = async (community) => {
     const { data } = await authAxios.post("/api/communities", community);
 
-    console.log(community);
+    console.log(data);
   };
   const createLesson = async (lesson) => {
     console.log(lesson);
@@ -61,7 +61,6 @@ export default function Admin(props) {
 
   return (
     <div className="adminContainer">
-      {console.log(data)}
       {data ? (
         <DisplayUser
           data={data}

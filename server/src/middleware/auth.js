@@ -1,6 +1,18 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/User.model");
+const NodeGeocoder = require("node-geocoder");
 
+const options = {
+  provider: "openstreetmap",
+
+  // Optional depending on the providers
+
+  apiKey: null,
+
+  formatter: null, // 'gpx', 'string', ...
+};
+
+// Using callback
 const auth = async (req, res, next) => {
   console.log(req.header);
   try {
@@ -12,7 +24,7 @@ const auth = async (req, res, next) => {
       _id: decoded._id,
       "tokens.token": token,
     });
-    console.log(user);
+
     if (!user) {
       throw new Error();
     }

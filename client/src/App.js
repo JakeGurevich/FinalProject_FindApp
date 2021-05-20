@@ -6,13 +6,11 @@ import "./App.css";
 import Login from "./components/Login.component";
 import Home from "./components/Home.component";
 import CommunityShow from "./components/CommunityShow.component";
-import Header from "./components/Header.component";
 
 function App() {
   return (
     <div className="wrapper">
       <BrowserRouter>
-        <Header />
         <Switch>
           <Route path="/" exact>
             <Home />

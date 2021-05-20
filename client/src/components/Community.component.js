@@ -1,21 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import Lessons from "./Lessons.component";
 import AddLesson from "./AddLesson.component";
 const Community = (props) => {
+  const [show, setShow] = useState(false);
   return (
     <>
       <div className="containerWrap">
         <div className="title">Ваша община</div>
-        <div className="container">
-          <h1>{props.data.name}</h1>
-          <h2>{props.data.rabbi}</h2>
+        <div className="containerAd">
+          <h1>
+            <span className="small">Название : </span>
+            {props.data.name}
+          </h1>
+          <h2>
+            <span className="small">Раввин : </span>
+            {props.data.rabbi}
+          </h2>
 
-          <p>
+          <h4>
+            <span className="small">Адрес : </span>
             {props.data.address.street}, {props.data.address.city}
-          </p>
-          <p>{props.data.description}</p>
+          </h4>
+          <h4>
+            <span className="small">Направление : </span>
+            {props.data.type}
+          </h4>
+          <h4>
+            <span className="small">Описание : </span>
+            {props.data.description}
+          </h4>
+
           <div className="lessons">
             <Lessons lessons={props.data.lessons} delete={props.delete} />
+            <div className="lessBtn">
+              <button onClick={() => setShow(true)}>+</button>
+            </div>
           </div>
         </div>
         {!props.data.name ? (
@@ -26,7 +45,7 @@ const Community = (props) => {
           </button>
         )}
       </div>
-      <AddLesson add={props.add} />
+      {show && <AddLesson add={props.add} close={setShow} />}
     </>
   );
 };

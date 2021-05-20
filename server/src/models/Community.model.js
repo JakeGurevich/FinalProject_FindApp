@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const geocoder = require("../utils/geocoder");
 
 const communitySchema = new mongoose.Schema(
   {
@@ -38,6 +39,10 @@ const communitySchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+communitySchema.pre("save", async function (next) {
+  const loc = await geocoder.geocode("Ha-Gefen Street 12, Nof HaGalil");
+  console.log(loc);
+});
 
 const Community = mongoose.model("Community", communitySchema);
 module.exports = Community;

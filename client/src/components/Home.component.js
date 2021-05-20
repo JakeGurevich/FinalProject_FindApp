@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import DisplayContent from "./DisplayContent.component";
 import Header from "./Header.component";
 import Map from "./Map.component";

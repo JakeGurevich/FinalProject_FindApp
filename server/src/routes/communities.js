@@ -50,7 +50,7 @@ communityRouter.post("/communities", auth, async (req, res) => {
   try {
     await community.save();
 
-    res.status(201).send(community);
+    res.status(201).send({ status: "succsess" });
   } catch (error) {
     res.status(400).send(error);
   }

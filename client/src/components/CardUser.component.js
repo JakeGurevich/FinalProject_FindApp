@@ -6,9 +6,21 @@ const CardUser = ({ data }) => {
     <div className="containerWrap">
       <div className="title">Ваш профиль</div>
       <div className="container">
-        <h1>{data.owner.name}</h1>
-        <h2>{data.owner.city}</h2>
-        <h2>{data.owner.phone}</h2>
+        <h1>
+          {" "}
+          <span className="small">Имя : </span>
+          {data.owner.name}
+        </h1>
+        <h2>
+          {" "}
+          <span className="small">Город : </span>
+          {data.owner.city}
+        </h2>
+        <h2>
+          {" "}
+          <span className="small">Телефон : </span>
+          {data.owner.phone}
+        </h2>
       </div>
     </div>
   );

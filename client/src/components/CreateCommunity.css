@@ -11,6 +11,10 @@ p {
   color: #666;
   line-height: 22px;
 }
+a:link {
+  text-decoration: none;
+  color: #141414;
+}
 
 .testbox {
   display: flex;
@@ -68,17 +72,17 @@ input:hover::placeholder {
   text-align: center;
 }
 button {
-  width: 150px;
+  /* width: 150px; */
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background: #cc0052;
+  background: #b2b362;
   font-size: 16px;
   color: #fff;
   cursor: pointer;
 }
 button:hover {
-  background: #ff0066;
+  background: #595a36fb;
 }
 
 /* @media (min-width: 568px) {
@@ -96,4 +100,7 @@ button:hover {
 }
 .contact-item input {
   width: calc(100% - 12px);
+}
+.admin span {
+  font-size: 0.8rem;
 }

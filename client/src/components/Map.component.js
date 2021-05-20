@@ -4,8 +4,8 @@ import ReactMapGL from "react-map-gl";
 const TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 const Map = () => {
   const [viewport, setViewport] = React.useState({
-    latitude: 37.7577,
-    longitude: -122.4376,
+    latitude: 31.7782568,
+    longitude: 35.23158275924868,
     zoom: 10,
     width: "100%",
     height: "100%",

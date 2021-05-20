@@ -4,7 +4,6 @@ const Lesson = require("../models/Lesson.model");
 const auth = require("../middleware/auth");
 
 lessonsRouter.post("/community/lesson", auth, async (req, res) => {
-  console.log(req.body, req.user);
   const lesson = new Lesson({ ...req.body, owner: req.user._id });
   try {
     await lesson.save();

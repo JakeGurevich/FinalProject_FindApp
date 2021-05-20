@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const AddLesson = ({ add }) => {
+const AddLesson = ({ add, close }) => {
   const [name, setName] = useState("Недельная глава");
   const [day, setDay] = useState("Воскресенье");
   const [time, setTime] = useState("");
@@ -53,16 +53,16 @@ const AddLesson = ({ add }) => {
             />
             <i className="fas fa-clock"></i>
           </div>
-        </div>
-
-        <div className="btn-block">
-          <button
-            onClick={() => {
-              add({ name, day, time });
-            }}
-          >
-            Добавить
-          </button>
+          <div>
+            <button
+              onClick={() => {
+                add({ name, day, time });
+              }}
+            >
+              Добавить
+            </button>
+            <button onClick={() => close(false)}>Закрыть</button>
+          </div>
         </div>
       </div>
     </>

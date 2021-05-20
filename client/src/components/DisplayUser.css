@@ -4,7 +4,7 @@
   background-color: rgb(234, 248, 248);
 }
 .logout {
-  background: rgb(253, 204, 204);
+  background: #f3eeb3(253, 204, 204);
 }
 .content {
   display: grid;
@@ -20,4 +20,19 @@
 }
 .lessons {
   background: rgb(226, 235, 243);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.lesson {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lesson button {
+  font-size: 0.8em;
+  padding: 5px;
+}
+.lesson p {
+  margin-left: 10px;
 }
