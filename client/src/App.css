@@ -19,6 +19,8 @@
 }
 .logo {
   margin-left: 50px;
+  color: #fff;
+  font-size: 2em;
 }
 .logo img {
   width: 90px;
@@ -34,6 +36,9 @@
   text-decoration: none;
   text-align: center;
   font-size: 1.3rem;
+}
+a {
+  color: white;
 }
 .link:hover {
   border: 2px solid white;
